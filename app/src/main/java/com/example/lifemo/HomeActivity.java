@@ -60,10 +60,14 @@ public class HomeActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+
+                Intent intent = new Intent(HomeActivity.this, CartActivity.class);
+                startActivity(intent);
+
             }
         });
+
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -178,6 +182,9 @@ public class HomeActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_cart) {
+
+            Intent intent = new Intent(HomeActivity.this, CartActivity.class);
+            startActivity(intent);
 
         }
         else if (id == R.id.nav_orders) {

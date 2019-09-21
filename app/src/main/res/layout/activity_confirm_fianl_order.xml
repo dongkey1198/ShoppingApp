@@ -28,6 +28,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:hint="Name: "
+        android:inputType="text"
         />
 
     <EditText
@@ -51,6 +52,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:hint="Home Address:"
+        android:inputType="text"
         />
 
     <EditText
@@ -62,6 +64,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:hint="City Name:"
+        android:inputType="text"
         />
 
 

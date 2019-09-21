@@ -8,11 +8,11 @@
 
     <ImageView
         android:id="@+id/register_applogo"
-        android:layout_width="300dp"
-        android:layout_height="100dp"
-        android:src="@drawable/applogo"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="260dp"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:src="@drawable/logo"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="40dp"
         />
 
     <EditText
@@ -24,7 +24,7 @@
         android:padding="20dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:hint="Name"
+        android:hint="Name:"
         android:inputType="text"
         android:textColor="@color/colorPrimaryDark"
         android:textColorHint="@color/colorPrimaryDark"
@@ -40,12 +40,12 @@
         android:padding="20dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:hint="Phone Number"
+        android:hint="Phone Number:"
         android:inputType="number"
         android:textColor="@color/colorPrimaryDark"
         android:textColorHint="@color/colorPrimaryDark"
         android:textSize="19sp"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="20dp"
         />
 
 
@@ -58,8 +58,8 @@
         android:padding="20dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:layout_marginTop="6dp"
-        android:hint="Password"
+        android:layout_marginTop="20dp"
+        android:hint="Password:"
         android:inputType="textPassword"
         android:textColor="@color/colorPrimaryDark"
         android:textColorHint="@color/colorPrimaryDark"
@@ -72,7 +72,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/register_password_input"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:background="@drawable/buttons"

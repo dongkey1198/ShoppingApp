@@ -33,6 +33,7 @@ public class CartActivity extends AppCompatActivity {
     private Button NextProcessBtn;
     private TextView txtTotalAmount, txtMsg1;
 
+    private int overTotalPrice = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,11 +50,26 @@ public class CartActivity extends AppCompatActivity {
         txtMsg1 = (TextView) findViewById(R.id.msg1);
 
 
+        NextProcessBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                txtTotalAmount.setText("Total Price = $" + String.valueOf(overTotalPrice));
+
+                Intent intent = new Intent(CartActivity.this, ConfirmFinalOrderActivity.class);
+                intent.putExtra("Total Price", String.valueOf(overTotalPrice));
+                startActivity(intent);
+                finish();
+            }
+        });
+
+
     }
 
     @Override
     protected void onStart() {
         super.onStart();
+
 
         final DatabaseReference cartListRef = FirebaseDatabase.getInstance().getReference().child("Cart List");
 
@@ -69,6 +85,11 @@ public class CartActivity extends AppCompatActivity {
                 holder.txtProductQuantity.setText("Quantity = " + model.getQuantity());
                 holder.txtProductPrice.setText("Price: $" + model.getPrice());
                 holder.txtProductName.setText("Product Name: "+model.getPname());
+
+                int oneTyprProductTPrice = ((Integer.valueOf(model.getPrice()))) * Integer.valueOf(model.getQuantity());
+                overTotalPrice = overTotalPrice + oneTyprProductTPrice;
+                //바꿔야할수도있다.
+                txtTotalAmount.setText("Total Price = $" + String.valueOf(overTotalPrice));
 
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -136,4 +157,6 @@ public class CartActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         adapter.startListening();
     }
+
+
 }

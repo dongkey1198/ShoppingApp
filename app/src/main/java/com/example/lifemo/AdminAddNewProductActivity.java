@@ -30,7 +30,7 @@ import java.util.HashMap;
 
 public class AdminAddNewProductActivity extends AppCompatActivity {
 
-    private String CategoryName, Description, Price, Pname, saveCurrentDate, saveCurrentTime;
+    private String Description, Price, Pname, saveCurrentDate, saveCurrentTime;
     private Button AddNewProductButton;
     private ImageView InputProductImage;
     private EditText InputProductName, InputProductDescription, InputProductPrice;
@@ -49,7 +49,6 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
         setContentView(R.layout.activity_admin_add_new_product);
 
 
-        CategoryName = getIntent().getExtras().get("category").toString();
         ProductImagesRef = FirebaseStorage.getInstance().getReference().child("Product Images");
         ProductsRef = FirebaseDatabase.getInstance().getReference().child("Products");
 
@@ -212,7 +211,6 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
         productMap.put("time", saveCurrentTime);
         productMap.put("description", Description);
         productMap.put("image", downloadImageUrl);
-        productMap.put("category", CategoryName);
         productMap.put("price", Price);
         productMap.put("pname", Pname);
 

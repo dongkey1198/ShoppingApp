@@ -19,9 +19,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.rey.material.widget.CheckBox;
-
-import io.paperdb.Paper;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -31,7 +28,6 @@ public class LoginActivity extends AppCompatActivity {
     private TextView AdminLink, NotAdminLink;
 
     private String parentDbName = "Users";
-    private CheckBox chkBoxRememberMe;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,12 +41,6 @@ public class LoginActivity extends AppCompatActivity {
 
         AdminLink = (TextView) findViewById(R.id.admin_panel_link);
         NotAdminLink = (TextView) findViewById(R.id.not_admin_panel_link);
-
-
-        chkBoxRememberMe = (CheckBox) findViewById(R.id.remember_me_chkb);
-        Paper.init(this);
-
-
 
         LoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,13 +91,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void AllowAccessToAccount(final String phone, final String password) {
-
-        if(chkBoxRememberMe.isChecked())
-        {
-            Paper.book().write(Prevalent.UserPhoneKey, phone);
-            Paper.book().write(Prevalent.UserPasswordKey, password);
-        }
-
 
         final DatabaseReference RootRef;
         RootRef = FirebaseDatabase.getInstance().getReference();

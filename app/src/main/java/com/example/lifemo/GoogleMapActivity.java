@@ -28,13 +28,13 @@ import com.google.android.gms.tasks.OnSuccessListener;
 
 public class GoogleMapActivity extends FragmentActivity implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
 
-    // 권한 체크 요청 코드 정의
+    // Permission Check
     public static final int REQUEST_CODE_PERMISSIONS = 1000;
 
     private GoogleMap mMap;
     private GoogleApiClient mGoogleApiClient;
 
-    // 위치 정보 얻는 객체
+    // Location Information
     private FusedLocationProviderClient mFusedLocationClient;
 
     @Override
@@ -42,7 +42,7 @@ public class GoogleMapActivity extends FragmentActivity implements OnMapReadyCal
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_google_map);
 
-        // GoogleAPIClient의 인스턴스 생성
+        //Create GoogleAPIClient's Interface
         if (mGoogleApiClient == null) {
             mGoogleApiClient = new GoogleApiClient.Builder(this)
                     .addConnectionCallbacks(this)
@@ -95,7 +95,7 @@ public class GoogleMapActivity extends FragmentActivity implements OnMapReadyCal
         // 카메라 줌
         mMap.animateCamera(CameraUpdateFactory.zoomTo(12.0f));
 
-       
+
     }
 
     @Override
@@ -110,7 +110,7 @@ public class GoogleMapActivity extends FragmentActivity implements OnMapReadyCal
         switch (requestCode) {
             case REQUEST_CODE_PERMISSIONS:
                 if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                    Toast.makeText(this, "권한 체크 거부 됨", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Permission Denied", Toast.LENGTH_SHORT).show();
                 }
                 return;
         }
@@ -128,7 +128,7 @@ public class GoogleMapActivity extends FragmentActivity implements OnMapReadyCal
     }
 
     public void onLastLocationButtonClicked(View view) {
-        // 권한 체크
+        // Permission Check
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, REQUEST_CODE_PERMISSIONS);
             return;
@@ -137,7 +137,7 @@ public class GoogleMapActivity extends FragmentActivity implements OnMapReadyCal
             @Override
             public void onSuccess(Location location) {
                 if (location != null) {
-                    // 현재 위치
+                    // Current Location
                     LatLng myLocation = new LatLng(location.getLatitude(), location.getLongitude());
                     mMap.addMarker(new MarkerOptions()
                             .position(myLocation)
@@ -145,7 +145,7 @@ public class GoogleMapActivity extends FragmentActivity implements OnMapReadyCal
 
                     mMap.moveCamera(CameraUpdateFactory.newLatLng(myLocation));
 
-                    // 카메라 줌
+                    // Camera Zoom
                     mMap.animateCamera(CameraUpdateFactory.zoomTo(12.0f));
                 }
             }

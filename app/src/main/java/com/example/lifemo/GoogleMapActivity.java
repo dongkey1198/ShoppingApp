@@ -85,15 +85,11 @@ public class GoogleMapActivity extends FragmentActivity implements OnMapReadyCal
         mMap = googleMap;
 
         // 새로운 위치 추가
-        LatLng suwonsmartapp = new LatLng(1.302570, 103.834686);
-        mMap.addMarker(new MarkerOptions()
-                .position(suwonsmartapp)
-                .title("LifeMo Offline Store"));
+        LatLng country = new LatLng(1.3521, 103.8198);
 
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(suwonsmartapp));
 
-        // 카메라 줌
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(12.0f));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(country));
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(10.0f));
 
 
     }
@@ -146,7 +142,7 @@ public class GoogleMapActivity extends FragmentActivity implements OnMapReadyCal
                     mMap.moveCamera(CameraUpdateFactory.newLatLng(myLocation));
 
                     // Camera Zoom
-                    mMap.animateCamera(CameraUpdateFactory.zoomTo(12.0f));
+                    mMap.animateCamera(CameraUpdateFactory.zoomTo(14.0f));
                 }
             }
         });

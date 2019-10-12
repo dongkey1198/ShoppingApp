@@ -84,7 +84,7 @@ public class GoogleMapActivity extends FragmentActivity implements OnMapReadyCal
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // 새로운 위치 추가
+        // set map location
         LatLng country = new LatLng(1.3521, 103.8198);
 
 

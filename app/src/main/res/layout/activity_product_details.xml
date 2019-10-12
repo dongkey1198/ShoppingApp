@@ -14,7 +14,7 @@
         android:id="@+id/product_image_details"
         android:layout_width="match_parent"
         android:layout_height="260dp"
-        android:scaleType="centerCrop"
+        android:scaleType="fitCenter"
         />
 
     <TextView
@@ -55,6 +55,7 @@
         android:gravity="center"
         android:layout_marginTop="10dp"
         />
+
 
 
     <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton

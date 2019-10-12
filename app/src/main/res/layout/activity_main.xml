@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".MainActivity">
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/app_logo"
             android:layout_width="match_parent"
-            android:layout_height="400dp"
+            android:layout_height="350dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="60dp"
             android:src="@drawable/logo"
@@ -24,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
-            android:layout_marginBottom="80dp"
+            android:layout_marginBottom="20dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_marginTop="20dp"
@@ -33,6 +36,7 @@
             android:textAllCaps="false"
             android:textSize="18sp"
             android:text="Login"
+            android:layout_below="@+id/main_join_now_btn"
             android:textColor="@android:color/white"
             />
 
@@ -40,7 +44,6 @@
             android:id="@+id/main_join_now_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/main_login_btn"
             android:layout_marginBottom="5dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
@@ -48,9 +51,14 @@
             android:padding="20dp"
             android:textAllCaps="false"
             android:textSize="18sp"
+            android:layout_marginTop="30dp"
+            android:layout_below="@+id/app_logo"
             android:text="Register"
             android:textColor="@android:color/white"
             />
 
 
-</RelativeLayout>
+    </RelativeLayout>
+
+
+</ScrollView>

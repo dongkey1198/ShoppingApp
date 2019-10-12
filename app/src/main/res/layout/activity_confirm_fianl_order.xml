@@ -80,6 +80,7 @@
             android:layout_alignParentBottom="true"
             android:layout_margin="20dp"
             android:text="Confirm"
+            android:layout_below="@+id/shippment_city"
             android:background="@color/colorPrimaryDark"
             android:textColor="@android:color/white"
             android:textSize="20dp"
